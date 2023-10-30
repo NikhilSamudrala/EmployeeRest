@@ -12,7 +12,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
+
 	@Override
 	public void saveEmployee(Employee employee) {
 		this.employeeRepository.save(employee);
@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<Employee> getEmployeesAfterIncomeTaxDeduction() {
 		List<Employee> employees = employeeRepository.findAll();
-		
+
 		return employees;
 	}
 

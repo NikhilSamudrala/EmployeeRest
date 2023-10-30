@@ -1,6 +1,7 @@
 package com.employee.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,13 +28,19 @@ public class Employee {
 	private String email;
 
 	@Column(name = "email")
-	private String phoneNumber;
+	private List<String> phoneNumber;
 	
 	@Column(name = "salary")
 	private Date doj;
 	
 	@Column(name = "salary")
 	private long salary;
+	
+	private long yearlySalary;
+	
+	private double taxAmount;
+	 
+	private double cessAmount;
 
 	public long getEmployeeId() {
 		return employeeId;
@@ -67,12 +74,16 @@ public class Employee {
 		this.email = email;
 	}
 
-	public String getPhoneNumber() {
+	public List<String> getPhoneNumber() {
 		return phoneNumber;
 	}
 
+	public void setPhoneNumber(List<String> phoneNumber) {
+		this.phoneNumber.addAll(phoneNumber);
+	}
+
 	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+		this.phoneNumber.add(phoneNumber);
 	}
 
 	public Date getDoj() {
@@ -90,6 +101,29 @@ public class Employee {
 	public void setSalary(long salary) {
 		this.salary = salary;
 	}
-	
+
+	public long getYearlySalary() {
+		return yearlySalary;
+	}
+
+	public void setYearlySalary(long yearlySalary) {
+		this.yearlySalary = yearlySalary;
+	}
+
+	public double getTaxAmount() {
+		return taxAmount;
+	}
+
+	public void setTaxAmount(double taxAmount) {
+		this.taxAmount = taxAmount;
+	}
+
+	public double getCessAmount() {
+		return cessAmount;
+	}
+
+	public void setCessAmount(double cessAmount) {
+		this.cessAmount = cessAmount;
+	}
 	
 }
