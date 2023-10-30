@@ -3,7 +3,10 @@ package com.employee.model;
 import java.sql.Date;
 import java.util.List;
 
+import com.employee.repository.StringListConverter;
+
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,11 +29,12 @@ public class Employee {
 	
 	@Column(name = "email")
 	private String email;
-
-	@Column(name = "email")
+	
+	@Convert(converter = StringListConverter.class)
+	@Column(name = "phone_number")
 	private List<String> phoneNumber;
 	
-	@Column(name = "salary")
+	@Column(name = "doj")
 	private Date doj;
 	
 	@Column(name = "salary")

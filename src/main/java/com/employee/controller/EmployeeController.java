@@ -1,4 +1,4 @@
-package controller;
+package com.employee.controller;
 
 import java.sql.Date;
 import java.util.List;
@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.employee.model.Employee;
-
-import service.EmployeeService;
+import com.employee.service.EmployeeService;
 
 @RestController
 @Validated
