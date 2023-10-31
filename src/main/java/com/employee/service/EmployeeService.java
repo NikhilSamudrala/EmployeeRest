@@ -2,10 +2,11 @@ package com.employee.service;
 
 import java.util.List;
 
-import com.employee.model.Employee;
+import com.employee.dto.EmployeeDTO;
+import com.employee.responsemodel.EmployeeResponse;
 
 public interface EmployeeService {
-	void saveEmployee(Employee employee);
+	EmployeeDTO saveEmployee(EmployeeDTO employee);
 
-	List<Employee> getEmployeesAfterIncomeTaxDeduction();
+	List<EmployeeResponse> getEmployeesAfterIncomeTaxDeduction();
 }

@@ -1,4 +1,4 @@
-package com.employee.model;
+package com.employee.entity;
 
 import java.sql.Date;
 import java.util.List;
@@ -12,39 +12,49 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
+/**
+ * Employee object used for DB operations.
+ */
 @Entity
 @Table(name = "employees")
-public class Employee {
-	
+public class EmployeeEntity {
+
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
+	@NotEmpty
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long employeeId;
-	
+
+	@NotEmpty
+	@Size(min = 2, max = 100)
 	@Column(name = "first_name")
 	private String firstName;
-	
+
+	@NotEmpty
+	@Size(max = 100)
 	@Column(name = "last_name")
 	private String lastName;
-	
+
+	@NotEmpty
+	@Email
 	@Column(name = "email")
 	private String email;
-	
+
+	@NotEmpty
 	@Convert(converter = StringListConverter.class)
 	@Column(name = "phone_number")
 	private List<String> phoneNumber;
-	
+
+	@NotEmpty
 	@Column(name = "doj")
 	private Date doj;
-	
+
+	@NotEmpty
 	@Column(name = "salary")
 	private long salary;
-	
-	private long yearlySalary;
-	
-	private double taxAmount;
-	 
-	private double cessAmount;
 
 	public long getEmployeeId() {
 		return employeeId;
@@ -105,29 +115,4 @@ public class Employee {
 	public void setSalary(long salary) {
 		this.salary = salary;
 	}
-
-	public long getYearlySalary() {
-		return yearlySalary;
-	}
-
-	public void setYearlySalary(long yearlySalary) {
-		this.yearlySalary = yearlySalary;
-	}
-
-	public double getTaxAmount() {
-		return taxAmount;
-	}
-
-	public void setTaxAmount(double taxAmount) {
-		this.taxAmount = taxAmount;
-	}
-
-	public double getCessAmount() {
-		return cessAmount;
-	}
-
-	public void setCessAmount(double cessAmount) {
-		this.cessAmount = cessAmount;
-	}
-	
 }
